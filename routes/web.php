@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use app\Http\Controllers\ExamController;
-use app\Http\Controllers\ScheduleController;
-use app\Http\Controllers\AssignmentController;
-use app\Http\Controllers\PresenceController;
+use App\Http\Controllers\ExamController;
+use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\PresenceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
