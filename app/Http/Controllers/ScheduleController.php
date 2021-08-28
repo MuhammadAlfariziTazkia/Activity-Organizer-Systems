@@ -88,7 +88,8 @@ class ScheduleController extends Controller
     public function edit($id)
     {
         //
-        return view('Schedule.update');
+        $schedule = Schedule::find($id);
+        return view('Schedule.update', compact('schedule'));
     }
 
     /**
@@ -101,6 +102,17 @@ class ScheduleController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $schedule = Schedule::find($id);
+        $schedule->subject = $request->subject;
+        $schedule->day = $request->day;
+        $schedule->start_time = $request->start_time;
+        $schedule->end_time = $request->end_time;
+        $schedule->classroom_link = $request->classroom_link;
+        $schedule->meet_link = $request->meet_link;
+        $schedule->from = $request->from;
+        $schedule->save();
+
+        return redirect('/schedule');
     }
 
     /**
