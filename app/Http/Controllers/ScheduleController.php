@@ -124,5 +124,9 @@ class ScheduleController extends Controller
     public function destroy($id)
     {
         //
+        $schedule = Schedule::find($id);
+        $schedule->delete();
+
+        return redirect('/schedule');
     }
 }
