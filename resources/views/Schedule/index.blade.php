@@ -101,7 +101,7 @@
                                         href="{{ $item->classroom_link }}" class="btn btn-success">Classroom</a><br>
                                 @endif
                                 <a href="{{ $item->meet_link }}" class="btn btn-primary mt-1">Meet</a>
-                                <a href="" class="btn btn-warning mt-1">Update</a>
+                                <a href="{{url('/schedule/'.$item->id.'/edit')}}" class="btn btn-warning mt-1">Update</a>
                                 <a href="" class="btn btn-danger mt-1">Delete</a>
                             </th>
                         </tr>
