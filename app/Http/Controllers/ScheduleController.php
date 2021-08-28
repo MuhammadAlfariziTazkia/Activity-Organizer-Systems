@@ -15,7 +15,23 @@ class ScheduleController extends Controller
     public function index()
     {
         //
-        return view('Schedule.index');
+        $sunday = Schedule::all()->where('day', 'sunday')->sortBy('start_time');
+        $monday = Schedule::all()->where('day', 'monday')->sortBy('start_time');
+        $tuesday = Schedule::all()->where('day', 'tuesday')->sortBy('start_time');
+        $wednesday = Schedule::all()->where('day', 'wednesday')->sortBy('start_time');
+        $thursday = Schedule::all()->where('day', 'thursday')->sortBy('start_time');
+        $friday = Schedule::all()->where('day', 'friday')->sortBy('start_time');
+        $saturday = Schedule::all()->where('day', 'saturday')->sortBy('start_time');
+
+        return view('Schedule.index', [
+            'sunday' => $sunday,
+            'monday' => $monday,
+            'tuesday' => $tuesday,
+            'wednesday' => $wednesday,
+            'thursday' => $thursday,
+            'friday' => $friday,
+            'saturday' => $saturday,
+        ]);
     }
 
     /**
