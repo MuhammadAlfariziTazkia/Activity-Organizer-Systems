@@ -33,16 +33,16 @@
                     @foreach ($monday as $key => $item)
                         <tr>
                             <th scope="col">
-                                <h5><span class="badge bg-danger">{{ $item->start_time }}</span></h5>
+                                <h4><span class="badge bg-danger">{{ $item->start_time }}</span></h4>
                             </th>
                             <th scope="col">
-                                <h5><span class="badge bg-primary">{{ $item->end_time }}</span></h5>
+                                <h4><span class="badge bg-primary">{{ $item->end_time }}</span></h4>
                             </th>
                             <th scope="col">
                                 <h5><b>{{ $item->subject }}</b></h5>
                             </th>
                             <th scope="col">
-                                <center>{{ $item->from }}</center>
+                                <h5><center>{{ $item->from }}</center></h5>
                             </th>
                             <th scope="col">
                                 @if ($item->from === 'College')<a
@@ -85,16 +85,16 @@
                     @foreach ($tuesday as $key => $item)
                         <tr>
                             <th scope="col">
-                                <h5><span class="badge bg-danger">{{ $item->start_time }}</span></h5>
+                                <h4><span class="badge bg-danger">{{ $item->start_time }}</span></h4>
                             </th>
                             <th scope="col">
-                                <h5><span class="badge bg-primary">{{ $item->end_time }}</span></h5>
+                                <h4><span class="badge bg-primary">{{ $item->end_time }}</span></h4>
                             </th>
                             <th scope="col">
                                 <h5><b>{{ $item->subject }}</b></h5>
                             </th>
                             <th scope="col">
-                                <center>{{ $item->from }}</center>
+                                <h5><center>{{ $item->from }}</center></h5>
                             </th>
                             <th scope="col">
                                 @if ($item->from === 'College')<a
@@ -140,16 +140,16 @@
                     @foreach ($wednesday as $key => $item)
                         <tr>
                             <th scope="col">
-                                <h5><span class="badge bg-danger">{{ $item->start_time }}</span></h5>
+                                <h4><span class="badge bg-danger">{{ $item->start_time }}</span></h4>
                             </th>
                             <th scope="col">
-                                <h5><span class="badge bg-primary">{{ $item->end_time }}</span></h5>
+                                <h4><span class="badge bg-primary">{{ $item->end_time }}</span></h4>
                             </th>
                             <th scope="col">
                                 <h5><b>{{ $item->subject }}</b></h5>
                             </th>
                             <th scope="col">
-                                <center>{{ $item->from }}</center>
+                                <h5><center>{{ $item->from }}</center></h5>
                             </th>
                             <th scope="col">
                                 @if ($item->from === 'College')<a
@@ -192,16 +192,16 @@
                     @foreach ($thursday as $key => $item)
                         <tr>
                             <th scope="col">
-                                <h5><span class="badge bg-danger">{{ $item->start_time }}</span></h5>
+                                <h4><span class="badge bg-danger">{{ $item->start_time }}</span></h4>
                             </th>
                             <th scope="col">
-                                <h5><span class="badge bg-primary">{{ $item->end_time }}</span></h5>
+                                <h4><span class="badge bg-primary">{{ $item->end_time }}</span></h4>
                             </th>
                             <th scope="col">
                                 <h5><b>{{ $item->subject }}</b></h5>
                             </th>
                             <th scope="col">
-                                <center>{{ $item->from }}</center>
+                                <h5><center>{{ $item->from }}</center></h5>
                             </th>
                             <th scope="col">
                                 @if ($item->from === 'College')<a
@@ -247,16 +247,16 @@
                     @foreach ($friday as $key => $item)
                         <tr>
                             <th scope="col">
-                                <h5><span class="badge bg-danger">{{ $item->start_time }}</span></h5>
+                                <h4><span class="badge bg-danger">{{ $item->start_time }}</span></h4>
                             </th>
                             <th scope="col">
-                                <h5><span class="badge bg-primary">{{ $item->end_time }}</span></h5>
+                                <h4><span class="badge bg-primary">{{ $item->end_time }}</span></h4>
                             </th>
                             <th scope="col">
                                 <h5><b>{{ $item->subject }}</b></h5>
                             </th>
                             <th scope="col">
-                                <center>{{ $item->from }}</center>
+                                <h5><center>{{ $item->from }}</center></h5>
                             </th>
                             <th scope="col">
                                 @if ($item->from === 'College')<a
@@ -299,16 +299,16 @@
                     @foreach ($saturday as $key => $item)
                         <tr>
                             <th scope="col">
-                                <h5><span class="badge bg-danger">{{ $item->start_time }}</span></h5>
+                                <h4><span class="badge bg-danger">{{ $item->start_time }}</span></h4>
                             </th>
                             <th scope="col">
-                                <h5><span class="badge bg-primary">{{ $item->end_time }}</span></h5>
+                                <h4><span class="badge bg-primary">{{ $item->end_time }}</span></h4>
                             </th>
                             <th scope="col">
                                 <h5><b>{{ $item->subject }}</b></h5>
                             </th>
                             <th scope="col">
-                                <center>{{ $item->from }}</center>
+                                <h5><center>{{ $item->from }}</center></h5>
                             </th>
                             <th scope="col">
                                 @if ($item->from === 'College')<a
@@ -354,16 +354,16 @@
                     @foreach ($sunday as $key => $item)
                         <tr>
                             <th scope="col">
-                                <h5><span class="badge bg-danger">{{ $item->start_time }}</span></h5>
+                                <h4><span class="badge bg-danger">{{ $item->start_time }}</span></h4>
                             </th>
                             <th scope="col">
-                                <h5><span class="badge bg-primary">{{ $item->end_time }}</span></h5>
+                                <h4><span class="badge bg-primary">{{ $item->end_time }}</span></h4>
                             </th>
                             <th scope="col">
                                 <h5><b>{{ $item->subject }}</b></h5>
                             </th>
                             <th scope="col">
-                                <center>{{ $item->from }}</center>
+                                <h5><center>{{ $item->from }}</center></h5>
                             </th>
                             <th scope="col">
                                 @if ($item->from === 'College')<a
