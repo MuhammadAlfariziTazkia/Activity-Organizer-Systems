@@ -50,7 +50,11 @@
                                 @endif
                                 <a href="{{ $item->meet_link }}" class="btn btn-primary mt-1">Meet</a>
                                 <a href="{{url('/schedule/'.$item->id.'/edit')}}" class="btn btn-warning mt-1">Update</a>
-                                <a href="" class="btn btn-danger mt-1">Delete</a>
+                                <form action="{{url('/schedule/'.$item->id)}}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="btn btn-danger mt-1" onclick="alert('Delete this schedule ?')">Delete</a>
+                                </form>
                             </th>
                         </tr>
                     @endforeach
@@ -102,7 +106,11 @@
                                 @endif
                                 <a href="{{ $item->meet_link }}" class="btn btn-primary mt-1">Meet</a>
                                 <a href="{{url('/schedule/'.$item->id.'/edit')}}" class="btn btn-warning mt-1">Update</a>
-                                <a href="" class="btn btn-danger mt-1">Delete</a>
+                                <form action="{{url('/schedule/'.$item->id)}}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="btn btn-danger mt-1" onclick="alert('Delete this schedule ?')">Delete</a>
+                                </form>
                             </th>
                         </tr>
                     @endforeach
@@ -157,7 +165,11 @@
                                 @endif
                                 <a href="{{ $item->meet_link }}" class="btn btn-primary mt-1">Meet</a>
                                 <a href="{{url('/schedule/'.$item->id.'/edit')}}" class="btn btn-warning mt-1">Update</a>
-                                <a href="" class="btn btn-danger mt-1">Delete</a>
+                                <form action="{{url('/schedule/'.$item->id)}}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="btn btn-danger mt-1" onclick="alert('Delete this schedule ?')">Delete</a>
+                                </form>
                             </th>
                         </tr>
                     @endforeach
@@ -209,7 +221,11 @@
                                 @endif
                                 <a href="{{ $item->meet_link }}" class="btn btn-primary mt-1">Meet</a>
                                 <a href="{{url('/schedule/'.$item->id.'/edit')}}" class="btn btn-warning mt-1">Update</a>
-                                <a href="" class="btn btn-danger mt-1">Delete</a>
+                                <form action="{{url('/schedule/'.$item->id)}}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="btn btn-danger mt-1" onclick="alert('Delete this schedule ?')">Delete</a>
+                                </form>
                             </th>
                         </tr>
                     @endforeach
@@ -264,7 +280,11 @@
                                 @endif
                                 <a href="{{ $item->meet_link }}" class="btn btn-primary mt-1">Meet</a>
                                 <a href="{{url('/schedule/'.$item->id.'/edit')}}" class="btn btn-warning mt-1">Update</a>
-                                <a href="" class="btn btn-danger mt-1">Delete</a>
+                                <form action="{{url('/schedule/'.$item->id)}}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="btn btn-danger mt-1" onclick="alert('Delete this schedule ?')">Delete</a>
+                                </form>
                             </th>
                         </tr>
                     @endforeach
@@ -316,7 +336,11 @@
                                 @endif
                                 <a href="{{ $item->meet_link }}" class="btn btn-primary mt-1">Meet</a>
                                 <a href="{{url('/schedule/'.$item->id.'/edit')}}" class="btn btn-warning mt-1">Update</a>
-                                <a href="" class="btn btn-danger mt-1">Delete</a>
+                                <form action="{{url('/schedule/'.$item->id)}}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="btn btn-danger mt-1" onclick="alert('Delete this schedule ?')">Delete</a>
+                                </form>
                             </th>
                         </tr>
                     @endforeach
@@ -371,7 +395,11 @@
                                 @endif
                                 <a href="{{ $item->meet_link }}" class="btn btn-primary mt-1">Meet</a>
                                 <a href="{{url('/schedule/'.$item->id.'/edit')}}" class="btn btn-warning mt-1">Update</a>
-                                <a href="" class="btn btn-danger mt-1">Delete</a>
+                                <form action="{{url('/schedule/'.$item->id)}}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="btn btn-danger mt-1" onclick="alert('Delete this schedule ?')">Delete</a>
+                                </form>
                             </th>
                         </tr>
                     @endforeach
