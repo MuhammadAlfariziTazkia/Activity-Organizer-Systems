@@ -15,6 +15,7 @@ class ScheduleController extends Controller
     public function index()
     {
         //
+        return view('Schedule.index');
     }
 
     /**
@@ -25,6 +26,7 @@ class ScheduleController extends Controller
     public function create()
     {
         //
+        return view('Schedule.create');
     }
 
     /**
@@ -47,6 +49,7 @@ class ScheduleController extends Controller
     public function show($id)
     {
         //
+        return view('Schedule.detail');
     }
 
     /**
@@ -58,6 +61,7 @@ class ScheduleController extends Controller
     public function edit($id)
     {
         //
+        return view('Schedule.update');
     }
 
     /**
