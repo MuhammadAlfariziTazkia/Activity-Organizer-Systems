@@ -15,7 +15,23 @@ class ScheduleController extends Controller
     public function index()
     {
         //
-        return view('Schedule.index');
+        $sunday = Schedule::all()->where('day', 'sunday')->sortBy('start_time');
+        $monday = Schedule::all()->where('day', 'monday')->sortBy('start_time');
+        $tuesday = Schedule::all()->where('day', 'tuesday')->sortBy('start_time');
+        $wednesday = Schedule::all()->where('day', 'wednesday')->sortBy('start_time');
+        $thursday = Schedule::all()->where('day', 'thursday')->sortBy('start_time');
+        $friday = Schedule::all()->where('day', 'friday')->sortBy('start_time');
+        $saturday = Schedule::all()->where('day', 'saturday')->sortBy('start_time');
+
+        return view('Schedule.index', [
+            'sunday' => $sunday,
+            'monday' => $monday,
+            'tuesday' => $tuesday,
+            'wednesday' => $wednesday,
+            'thursday' => $thursday,
+            'friday' => $friday,
+            'saturday' => $saturday,
+        ]);
     }
 
     /**
@@ -72,7 +88,8 @@ class ScheduleController extends Controller
     public function edit($id)
     {
         //
-        return view('Schedule.update');
+        $schedule = Schedule::find($id);
+        return view('Schedule.update', compact('schedule'));
     }
 
     /**
@@ -85,6 +102,17 @@ class ScheduleController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $schedule = Schedule::find($id);
+        $schedule->subject = $request->subject;
+        $schedule->day = $request->day;
+        $schedule->start_time = $request->start_time;
+        $schedule->end_time = $request->end_time;
+        $schedule->classroom_link = $request->classroom_link;
+        $schedule->meet_link = $request->meet_link;
+        $schedule->from = $request->from;
+        $schedule->save();
+
+        return redirect('/schedule');
     }
 
     /**
