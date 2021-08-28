@@ -15,6 +15,7 @@ class ScheduleController extends Controller
     public function index()
     {
         //
+        return view('Schedule.index');
     }
 
     /**
@@ -25,6 +26,7 @@ class ScheduleController extends Controller
     public function create()
     {
         //
+        return view('Schedule.create');
     }
 
     /**
@@ -36,6 +38,17 @@ class ScheduleController extends Controller
     public function store(Request $request)
     {
         //
+        $schedule = new Schedule;
+        $schedule->subject = $request->subject;
+        $schedule->day = $request->day;
+        $schedule->start_time = $request->start_time;
+        $schedule->end_time = $request->end_time;
+        $schedule->classroom_link = $request->classroom_link;
+        $schedule->meet_link = $request->meet_link;
+        $schedule->from = $request->from;
+        $schedule->save();
+
+        return redirect('/schedule');
     }
 
     /**
@@ -47,6 +60,7 @@ class ScheduleController extends Controller
     public function show($id)
     {
         //
+        return view('Schedule.detail');
     }
 
     /**
@@ -58,6 +72,7 @@ class ScheduleController extends Controller
     public function edit($id)
     {
         //
+        return view('Schedule.update');
     }
 
     /**
