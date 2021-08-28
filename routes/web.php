@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use app\Http\Controllers\ExamController;
+use app\Http\Controllers\ScheduleController;
+use app\Http\Controllers\AssignmentController;
+use app\Http\Controllers\PresenceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('exam', ExamController::class);
+Route::resource('schedule', ScheduleController::class);
+Route::resource('presence', PresenceController::class);
+Route::resource('assignment', AssignmentController::class);
