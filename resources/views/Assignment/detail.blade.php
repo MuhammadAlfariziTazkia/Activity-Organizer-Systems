@@ -44,8 +44,9 @@
                             </table>
                             <a href="{{ url('/assignment/'.$assignment->id.'/edit') }}" class="btn btn-warning">Update</a>
                             <form action="{{ url('/assignment/'.$assignment->id) }}" method="POST" style="display: inline">
+                                @csrf
                                 <input type="hidden" name="_method" value="DELETE">
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger" onclick="alert('Delete this Data ?')">Delete</button>
                             </form>
                         </div>
                     </div>
