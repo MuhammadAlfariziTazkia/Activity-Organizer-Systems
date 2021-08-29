@@ -57,9 +57,9 @@ class AssignmentController extends Controller
 
         if($assignment_attachment){
             $original_name = $assignment_attachment->getClientOriginalName();
-            $assignment_attachment->move(public_path().'/images/Assignment', $assignment_file_name);
             $assignment_file_name = $current_date.' '.$original_name;
             $assignment->assignment_screenshot = $assignment_file_name;
+            $assignment_attachment->move(public_path().'/images/Assignment', $assignment_file_name);
         }
 
         $assignment->save();
@@ -76,6 +76,8 @@ class AssignmentController extends Controller
     public function show($id)
     {
         //
+        $assignment = Assignment::find($id);
+        return view('Assignment.detail', compact('assignment'));
     }
 
     /**
@@ -87,6 +89,7 @@ class AssignmentController extends Controller
     public function edit($id)
     {
         //
+        return redirect('assignment');
     }
 
     /**
