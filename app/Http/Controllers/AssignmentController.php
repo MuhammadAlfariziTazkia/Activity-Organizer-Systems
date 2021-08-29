@@ -90,7 +90,8 @@ class AssignmentController extends Controller
     public function edit($id)
     {
         //
-        return redirect('assignment');
+        $assignment = Assignment::find($id);
+        return view('Assignment.update', compact('assignment'));
     }
 
     /**
@@ -103,6 +104,37 @@ class AssignmentController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $current_date = date('Y-m-d');
+        
+        $assignment_attachment = $request->file('assignment_screenshot');
+        $finished_attachment = $request->file('finished_screenshot');
+
+        $assignment = Assignment::find($id);
+        if($assignment_attachment){
+            File::delete(public_path().'/images/Assignment/'.$assignment->assignment_screenshot);
+            $original_name = $assignment_attachment->getClientOriginalName();
+            $assignment_file_name = $current_date.' '.$original_name;
+            $assignment->assignment_screenshot = $assignment_file_name;
+            $assignment_attachment->move(public_path().'/images/Assignment', $assignment_file_name);
+        }
+
+        if($finished_attachment){
+            File::delete(public_path().'/images/Assignment/'.$assignment->finished_screenshot);
+            $original_name = $finished_attachment->getClientOriginalName();
+            $finished_file_name = $current_date.' '.$original_name;
+            $assignment->finished_screenshot = $finished_file_name;
+            $finished_attachment->move(public_path().'/images/Assignment', $finished_file_name);
+        }
+
+        $assignment->subject = $request->subject;
+        $assignment->description = $request->description;
+        $assignment->assignment_link = $request->assignment_link;
+        $assignment->deadline_date = $request->deadline_date;
+        $assignment->status = $request->status;
+
+        $assignment->save();
+
+        return redirect('assignment');
     }
 
     /**
