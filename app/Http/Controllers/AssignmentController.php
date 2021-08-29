@@ -25,6 +25,7 @@ class AssignmentController extends Controller
     public function create()
     {
         //
+        return view('Assignment.create');
     }
 
     /**
@@ -36,6 +37,25 @@ class AssignmentController extends Controller
     public function store(Request $request)
     {
         //
+        $current_date = date('Y-m-d');
+        
+        $assignment_attachment = $request->file('assignment_screenshot');
+        $original_name = $assignment_attachment->getClientOriginalName();
+        $assignment_file_name = $current_date.' '.$original_name;
+
+        $assignment = new Assignment;
+        $assignment->subject = $request->subject;
+        $assignment->description = $request->description;
+        $assignment->assignment_link = $request->assignment_link;
+        $assignment->assignment_screenshot = $assignment_file_name;
+        $assignment->assigned_date = $current_date;
+        $assignment->deadline_date = $request->deadline_date;
+        $assignment->status = 'Not Finished';
+
+        $assignment_attachment->move(public_path().'/images/Assignment', $assignment_file_name);
+        $assignment->save();
+
+        return redirect ('assignment');
     }
 
     /**
