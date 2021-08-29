@@ -20,11 +20,11 @@
             <div class="col-md-4">
                 <div class="mb-3">
                     <label for="assignment_link" class="form-label">Assignment Link</label>
-                    <input name="assignment_link" type="text" class="form-control" id="assignment_link" required>
+                    <input name="assignment_link" type="text" class="form-control" id="assignment_link">
                 </div>
                 <div class="mb-3">
                     <label for="deadline_date" class="form-label">Deadline Date</label>
-                    <input name="deadline_date" type="text" class="form-control" id="deadline_date">
+                    <input name="deadline_date" type="text" class="form-control" required id="deadline_date">
                 </div>
 
                 <div class="mb-3">
