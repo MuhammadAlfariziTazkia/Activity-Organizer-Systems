@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Assignment;
+use File;
 
 class AssignmentController extends Controller
 {
@@ -113,5 +114,17 @@ class AssignmentController extends Controller
     public function destroy($id)
     {
         //
+        $assignment = Assignment::find($id);
+
+        if($assignment->assignment_screenshot != ''){
+            File::delete(public_path().'/images/Assignment/'.$assignment->assignment_screenshot);
+        }
+
+        if($assignment->finished_screenshot != ''){
+            File::delete(public_path().'/images/Assignment/'.$assignment->finished_screenshot);
+        }
+        $assignment->delete();
+
+        return redirect('assignment');
     }
 }
