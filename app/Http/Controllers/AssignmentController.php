@@ -15,6 +15,12 @@ class AssignmentController extends Controller
     public function index()
     {
         //
+        $assignment_undone = Assignment::all()->where('status', 'Not Finished')->sortBy('deadline');
+        $assignment_done = Assignment::all()->where('status', 'Finished')->sortBy('deadline');
+        return view('Assignment.index', [
+            'assignment_undone' => $assignment_undone,
+            'assignment_done' => $assignment_done
+        ]);
     }
 
     /**
@@ -40,19 +46,22 @@ class AssignmentController extends Controller
         $current_date = date('Y-m-d');
         
         $assignment_attachment = $request->file('assignment_screenshot');
-        $original_name = $assignment_attachment->getClientOriginalName();
-        $assignment_file_name = $current_date.' '.$original_name;
-
+        
         $assignment = new Assignment;
         $assignment->subject = $request->subject;
         $assignment->description = $request->description;
         $assignment->assignment_link = $request->assignment_link;
-        $assignment->assignment_screenshot = $assignment_file_name;
         $assignment->assigned_date = $current_date;
         $assignment->deadline_date = $request->deadline_date;
         $assignment->status = 'Not Finished';
 
-        $assignment_attachment->move(public_path().'/images/Assignment', $assignment_file_name);
+        if($assignment_attachment){
+            $original_name = $assignment_attachment->getClientOriginalName();
+            $assignment_attachment->move(public_path().'/images/Assignment', $assignment_file_name);
+            $assignment_file_name = $current_date.' '.$original_name;
+            $assignment->assignment_screenshot = $assignment_file_name;
+        }
+
         $assignment->save();
 
         return redirect ('assignment');
