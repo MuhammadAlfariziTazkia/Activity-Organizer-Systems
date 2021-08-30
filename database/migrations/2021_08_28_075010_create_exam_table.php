@@ -18,8 +18,7 @@ class CreateExamTable extends Migration
             $table->string("subject");
             $table->string("lesson");
             $table->string("category");
-            $table->string("date");
-            $table->string("time");
+            $table->string("datetime");
             $table->string("status");
             $table->string("status_screenshot")->nullable();
             $table->timestamps();
