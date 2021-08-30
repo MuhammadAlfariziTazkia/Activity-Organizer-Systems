@@ -25,6 +25,8 @@ class ExamController extends Controller
     public function create()
     {
         //
+        
+        return view('Exam.create');
     }
 
     /**
@@ -36,6 +38,15 @@ class ExamController extends Controller
     public function store(Request $request)
     {
         //
+        $exam = new Exam;
+        $exam->subject = $request->subject;
+        $exam->lesson = $request->lesson;
+        $exam->category = $request->category;
+        $exam->date = $request->date;
+        $exam->time = $request->time;
+        $exam->status = 'Not yet';
+        $exam->save();
+        return redirect('exam');
     }
 
     /**
