@@ -15,7 +15,12 @@ class ExamController extends Controller
     public function index()
     {
         //
-        return view('Exam.index');
+        $exam_undone = Exam::all()->where('status', 'Not yet')->sortBy('date');
+        $exam_done = Exam::all()->where('status', 'Completed')->sortBy('date');
+        return view('Exam.index', [
+            'exam_done' => $exam_done,
+            'exam_undone' => $exam_undone
+        ]);
     }
 
     /**
@@ -43,8 +48,7 @@ class ExamController extends Controller
         $exam->subject = $request->subject;
         $exam->lesson = $request->lesson;
         $exam->category = $request->category;
-        $exam->date = $request->date;
-        $exam->time = $request->time;
+        $exam->datetime = $request->date.' ('.$request->time.')';
         $exam->status = 'Not yet';
         $exam->save();
         return redirect('exam');
@@ -85,6 +89,14 @@ class ExamController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $exam = Exam::find($id);
+        $exam->subject = $request->subject;
+        $exam->lesson = $request->lesson;
+        $exam->category = $request->category;
+        $exam->datetime = $request->date.' ('.$request->time.')';
+        $exam->status = $request->status;
+        $exam->save();
+        return redirect('exam');
     }
 
     /**
