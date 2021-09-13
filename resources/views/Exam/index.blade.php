@@ -33,7 +33,7 @@
                             <td><h5>{{$item->subject}}</h5></td>
                             <td>{{$item->lesson}}</td>
                             <td>{{$item->category}}</td>
-                            <td><a href="" class="btn btn-warning">Update</a><a href="" class="btn btn-danger">Delete</a></td>
+                            <td><a href="{{url('/exam/'.$item->id.'/edit')}}" class="btn btn-warning">Update</a><a href="" class="btn btn-danger">Delete</a></td>
                         </tr>
                     @endforeach
                 </tbody>
