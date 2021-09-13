@@ -84,8 +84,7 @@ class ScheduleController extends Controller
     public function show($id)
     {
         //
-        $title = 'Edit Schedule';
-        return view('Schedule.detail', compact('title'));
+        return view('Schedule.detail');
     }
 
     /**
@@ -97,8 +96,10 @@ class ScheduleController extends Controller
     public function edit($id)
     {
         //
+
+        $title = 'Edit Schedule';
         $schedule = Schedule::find($id);
-        return view('Schedule.update', compact('schedule'));
+        return view('Schedule.update', compact('schedule', 'title'));
     }
 
     /**

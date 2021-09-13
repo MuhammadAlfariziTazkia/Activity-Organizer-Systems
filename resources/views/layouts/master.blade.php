@@ -14,7 +14,7 @@
         <!-- Styles -->
     
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <title>{{$title}}</title>
+    <title>{{$title ?? 'Document'}}</title>
 </head>
 <body>
     @include('layouts.navbar')

@@ -37,7 +37,7 @@
                             </td>
                             <td>{{ $item->lesson }}</td>
                             <td>{{ $item->category }}</td>
-                            <td><a href="" class="btn btn-warning">Update</a>
+                            <td><a href="{{url('/exam/'.$item->id.'/edit')}}" class="btn btn-warning">Update</a>
                                 <form action="{{ url('/exam/' . $item->id) }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="_method" value="DELETE">
@@ -82,7 +82,7 @@
                             </td>
                             <td>{{ $item->lesson }}</td>
                             <td>{{ $item->category }}</td>
-                            <td><a href="" class="btn btn-warning">Update</a>
+                            <td><a href="{{url('/exam/'.$item->id.'/edit')}}" class="btn btn-warning">Update</a>
                                 <form action="{{ url('/exam/' . $item->id) }}" method="POST" >
                                     @csrf
                                     <input type="hidden" name="_method" value="DELETE">
