@@ -15,6 +15,7 @@ class ExamController extends Controller
     public function index()
     {
         //
+        return view('Exam.index');
     }
 
     /**
@@ -69,6 +70,9 @@ class ExamController extends Controller
     public function edit($id)
     {
         //
+        $exam = Exam::find($id);
+
+        return view('Exam.update', compact('exam'));
     }
 
     /**
