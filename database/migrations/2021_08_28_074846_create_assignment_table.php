@@ -22,6 +22,7 @@ class CreateAssignmentTable extends Migration
             $table->string("finished_screenshot")->nullable();
             $table->string("assigned_date");
             $table->string("deadline_date");
+            $table->string("user");
             $table->string("status");
             $table->timestamps();
         });

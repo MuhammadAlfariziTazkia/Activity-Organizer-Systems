@@ -21,6 +21,7 @@ class CreateExamTable extends Migration
             $table->string("datetime");
             $table->string("status");
             $table->string("status_screenshot")->nullable();
+            $table->string("user");
             $table->timestamps();
         });
     }

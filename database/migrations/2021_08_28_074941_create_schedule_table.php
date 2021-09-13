@@ -22,6 +22,7 @@ class CreateScheduleTable extends Migration
             $table->string("classroom_link")->nullable();
             $table->string("meet_link")->nullable();
             $table->string("from");
+            $table->string("user");
             $table->timestamps();
         });
     }

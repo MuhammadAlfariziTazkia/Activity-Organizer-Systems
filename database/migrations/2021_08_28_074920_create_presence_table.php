@@ -19,6 +19,7 @@ class CreatePresenceTable extends Migration
             $table->string("date");
             $table->string("presence_screenshot")->nullable();
             $table->string("status");
+            $table->string("user");
             $table->timestamps();
         });
     }
