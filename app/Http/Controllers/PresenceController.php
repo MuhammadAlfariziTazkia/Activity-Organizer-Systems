@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Presence;
+use Illuminate\Support\Facades\Auth;
+
 
 class PresenceController extends Controller
 {
@@ -12,11 +14,16 @@ class PresenceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         //
-        $pre = Presence::all();
-        return view('Presence.index', compact('pre'));
+        $title = 'My Presence';
+        $pre = Presence::all()->where('user', Auth::user()->email);
+        return view('Presence.index', compact('pre', 'title'));
     }
 
     /**
@@ -27,7 +34,8 @@ class PresenceController extends Controller
     public function create()
     {
         //
-        return view('Presence.create');
+        $title = 'Add Presence';
+        return view('Presence.create', compact('title'));
     }
 
     /**
@@ -46,6 +54,7 @@ class PresenceController extends Controller
         $pre->subject = $request->subject;
         $pre->date = $request->date;
         $pre->status = $request->status;
+        $pre->user = Auth::user()->email;
 
         if($presence_screenshot){
             $original_name = $presence_screenshot->getClientOriginalName();

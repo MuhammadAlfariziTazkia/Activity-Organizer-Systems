@@ -1,10 +1,11 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Assignment;
 use File;
+use Illuminate\Support\Facades\Auth;
+
 
 class AssignmentController extends Controller
 {
@@ -13,14 +14,21 @@ class AssignmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         //
-        $assignment_undone = Assignment::all()->where('status', 'Not Finished')->sortBy('deadline');
-        $assignment_done = Assignment::all()->where('status', 'Finished')->sortBy('deadline');
+        $title = 'My Assignment';
+        $assignment_undone = Assignment::all()->where('user', Auth::user()->email)->where('status', 'Not Finished')->sortBy('deadline');
+        $assignment_done = Assignment::all()->where('user', Auth::user()->email)->where('status', 'Finished')->sortBy('deadline');
         return view('Assignment.index', [
             'assignment_undone' => $assignment_undone,
-            'assignment_done' => $assignment_done
+            'assignment_done' => $assignment_done,
+            'title' => $title
         ]);
     }
 
@@ -32,7 +40,8 @@ class AssignmentController extends Controller
     public function create()
     {
         //
-        return view('Assignment.create');
+        $title = 'Create Assignment';
+        return view('Assignment.create', compact('title'));
     }
 
     /**
@@ -54,6 +63,7 @@ class AssignmentController extends Controller
         $assignment->assignment_link = $request->assignment_link;
         $assignment->assigned_date = $current_date;
         $assignment->deadline_date = $request->deadline_date;
+        $assignment->user = Auth::user()->email;
         $assignment->status = 'Not Finished';
 
         if($assignment_attachment){
@@ -77,8 +87,9 @@ class AssignmentController extends Controller
     public function show($id)
     {
         //
+        $title = 'Detail Assignment';
         $assignment = Assignment::find($id);
-        return view('Assignment.detail', compact('assignment'));
+        return view('Assignment.detail', compact('assignment', 'title'));
     }
 
     /**
@@ -90,8 +101,9 @@ class AssignmentController extends Controller
     public function edit($id)
     {
         //
+        $title = 'Edit Assignment';
         $assignment = Assignment::find($id);
-        return view('Assignment.update', compact('assignment'));
+        return view('Assignment.update', compact('assignment', 'title'));
     }
 
     /**

@@ -1,12 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Exam;
+use Illuminate\Support\Facades\Auth;
 
 class ExamController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,11 +19,13 @@ class ExamController extends Controller
     public function index()
     {
         //
-        $exam_undone = Exam::all()->where('status', 'Not yet')->sortBy('date');
-        $exam_done = Exam::all()->where('status', 'Completed')->sortBy('date');
+        $exam_undone = Exam::all()->where('user', Auth::user()->email)->where('status', 'Not yet')->sortBy('date');
+        $exam_done = Exam::all()->where('user', Auth::user()->email)->where('status', 'Completed')->sortBy('date');
+        $title = 'My Exam';
         return view('Exam.index', [
             'exam_done' => $exam_done,
-            'exam_undone' => $exam_undone
+            'exam_undone' => $exam_undone,
+            'title' => $title
         ]);
     }
 
@@ -31,8 +37,9 @@ class ExamController extends Controller
     public function create()
     {
         //
-        
-        return view('Exam.create');
+        $title = 'Add Exam';
+
+        return view('Exam.create', compact('title'));
     }
 
     /**
@@ -50,6 +57,7 @@ class ExamController extends Controller
         $exam->category = $request->category;
         $exam->datetime = $request->date.' ('.$request->time.')';
         $exam->status = 'Not yet';
+        $exam->user = Auth::user()->email;
         $exam->save();
         return redirect('exam');
     }
@@ -75,8 +83,9 @@ class ExamController extends Controller
     {
         //
         $exam = Exam::find($id);
+        $title = 'Edit Exam';
 
-        return view('Exam.update', compact('exam'));
+        return view('Exam.update', compact('exam', 'title'));
     }
 
     /**

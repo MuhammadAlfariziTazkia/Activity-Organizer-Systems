@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Schedule;
+use Illuminate\Support\Facades\Auth;
 
 class ScheduleController extends Controller
 {
@@ -12,17 +13,21 @@ class ScheduleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         //
-        $sunday = Schedule::all()->where('day', 'sunday')->sortBy('start_time');
-        $monday = Schedule::all()->where('day', 'monday')->sortBy('start_time');
-        $tuesday = Schedule::all()->where('day', 'tuesday')->sortBy('start_time');
-        $wednesday = Schedule::all()->where('day', 'wednesday')->sortBy('start_time');
-        $thursday = Schedule::all()->where('day', 'thursday')->sortBy('start_time');
-        $friday = Schedule::all()->where('day', 'friday')->sortBy('start_time');
-        $saturday = Schedule::all()->where('day', 'saturday')->sortBy('start_time');
-
+        $sunday = Schedule::all()->where('user', Auth::user()->email)->where('day', 'sunday')->sortBy('start_time');
+        $monday = Schedule::all()->where('user', Auth::user()->email)->where('day', 'monday')->sortBy('start_time');
+        $tuesday = Schedule::all()->where('user', Auth::user()->email)->where('day', 'tuesday')->sortBy('start_time');
+        $wednesday = Schedule::all()->where('user', Auth::user()->email)->where('day', 'wednesday')->sortBy('start_time');
+        $thursday = Schedule::all()->where('user', Auth::user()->email)->where('day', 'thursday')->sortBy('start_time');
+        $friday = Schedule::all()->where('user', Auth::user()->email)->where('day', 'friday')->sortBy('start_time');
+        $saturday = Schedule::all()->where('user', Auth::user()->email)->where('day', 'saturday')->sortBy('start_time');
+        $title = 'My Schedule';
         return view('Schedule.index', [
             'sunday' => $sunday,
             'monday' => $monday,
@@ -31,6 +36,7 @@ class ScheduleController extends Controller
             'thursday' => $thursday,
             'friday' => $friday,
             'saturday' => $saturday,
+            'title' => $title
         ]);
     }
 
@@ -42,7 +48,8 @@ class ScheduleController extends Controller
     public function create()
     {
         //
-        return view('Schedule.create');
+        $title = 'Add Schedule';
+        return view('Schedule.create', compact(title));
     }
 
     /**
@@ -62,6 +69,7 @@ class ScheduleController extends Controller
         $schedule->classroom_link = $request->classroom_link;
         $schedule->meet_link = $request->meet_link;
         $schedule->from = $request->from;
+        $schedule->user = Auth::user()->email;
         $schedule->save();
 
         return redirect('/schedule');
@@ -76,7 +84,8 @@ class ScheduleController extends Controller
     public function show($id)
     {
         //
-        return view('Schedule.detail');
+        $title = 'Edit Schedule';
+        return view('Schedule.detail', compact('title'));
     }
 
     /**
