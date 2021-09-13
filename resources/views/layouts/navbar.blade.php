@@ -19,7 +19,7 @@
           <a class="nav-link" href="{{url('exam')}}">Exam</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Presence</a>
+          <a class="nav-link" href="{{url('presence')}}">Presence</a>
         </li>
       </ul>
     </div>
