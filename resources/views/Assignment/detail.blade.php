@@ -46,7 +46,7 @@
                             <form action="{{ url('/assignment/'.$assignment->id) }}" method="POST" style="display: inline">
                                 @csrf
                                 <input type="hidden" name="_method" value="DELETE">
-                                <button type="submit" class="btn btn-danger" onclick="alert('Delete this Data ?')">Delete</button>
+                                <button type="submit" class="btn btn-danger" onclick="confirm('Delete this Data ?')">Delete</button>
                             </form>
                         </div>
                     </div>
