@@ -15,6 +15,8 @@ class PresenceController extends Controller
     public function index()
     {
         //
+        $pre = Presence::all();
+        return view('Presence.index', compact('pre'));
     }
 
     /**
