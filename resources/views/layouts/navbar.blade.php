@@ -16,7 +16,7 @@
           <a class="nav-link" href="{{url('assignment')}}">Assignment</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Exam</a>
+          <a class="nav-link" href="{{url('exam')}}">Exam</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Presence</a>
