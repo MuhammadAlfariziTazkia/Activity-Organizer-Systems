@@ -53,7 +53,7 @@
                                 <form action="{{url('/schedule/'.$item->id)}}" method="POST">
                                     @csrf
                                     <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" class="btn btn-danger mt-1" onclick="alert('Delete this schedule ?')">Delete</a>
+                                    <button type="submit" class="btn btn-danger mt-1" onclick="confirm('Delete this schedule ?')">Delete</a>
                                 </form>
                             </th>
                         </tr>
@@ -109,7 +109,7 @@
                                 <form action="{{url('/schedule/'.$item->id)}}" method="POST">
                                     @csrf
                                     <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" class="btn btn-danger mt-1" onclick="alert('Delete this schedule ?')">Delete</a>
+                                    <button type="submit" class="btn btn-danger mt-1" onclick="confirm('Delete this schedule ?')">Delete</a>
                                 </form>
                             </th>
                         </tr>
@@ -168,7 +168,7 @@
                                 <form action="{{url('/schedule/'.$item->id)}}" method="POST">
                                     @csrf
                                     <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" class="btn btn-danger mt-1" onclick="alert('Delete this schedule ?')">Delete</a>
+                                    <button type="submit" class="btn btn-danger mt-1" onclick="confirm('Delete this schedule ?')">Delete</a>
                                 </form>
                             </th>
                         </tr>
@@ -224,7 +224,7 @@
                                 <form action="{{url('/schedule/'.$item->id)}}" method="POST">
                                     @csrf
                                     <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" class="btn btn-danger mt-1" onclick="alert('Delete this schedule ?')">Delete</a>
+                                    <button type="submit" class="btn btn-danger mt-1" onclick="confirm('Delete this schedule ?')">Delete</a>
                                 </form>
                             </th>
                         </tr>
@@ -283,7 +283,7 @@
                                 <form action="{{url('/schedule/'.$item->id)}}" method="POST">
                                     @csrf
                                     <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" class="btn btn-danger mt-1" onclick="alert('Delete this schedule ?')">Delete</a>
+                                    <button type="submit" class="btn btn-danger mt-1" onclick="confirm('Delete this schedule ?')">Delete</a>
                                 </form>
                             </th>
                         </tr>
@@ -339,7 +339,7 @@
                                 <form action="{{url('/schedule/'.$item->id)}}" method="POST">
                                     @csrf
                                     <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" class="btn btn-danger mt-1" onclick="alert('Delete this schedule ?')">Delete</a>
+                                    <button type="submit" class="btn btn-danger mt-1" onclick="confirm('Delete this schedule ?')">Delete</a>
                                 </form>
                             </th>
                         </tr>
@@ -398,7 +398,7 @@
                                 <form action="{{url('/schedule/'.$item->id)}}" method="POST">
                                     @csrf
                                     <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" class="btn btn-danger mt-1" onclick="alert('Delete this schedule ?')">Delete</a>
+                                    <button type="submit" class="btn btn-danger mt-1" onclick="confirm('Delete this schedule ?')">Delete</a>
                                 </form>
                             </th>
                         </tr>
