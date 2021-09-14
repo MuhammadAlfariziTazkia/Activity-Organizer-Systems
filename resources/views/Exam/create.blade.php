@@ -28,12 +28,12 @@
             </div>
             <div class="col-md-4">
                 <div class="mb-3">
-                    <label for="date" class="form-label">Date</label>
-                    <input name="date" type="text" class="form-control" id="date" required>
+                    <label for="date" class="form-label">Date (yyyy-mm-dd)</label>
+                    <input name="date" type="text" class="form-control" id="date" required minlength="10" maxlength="10" placeholder="eg. 2021-09-14">
                 </div>
                 <div class="mb-3">
-                    <label for="time" class="form-label">Time</label>
-                    <input name="time" type="text" class="form-control" id="time" required>
+                    <label for="time" class="form-label">Time (hh:mm)</label>
+                    <input name="time" type="text" class="form-control" id="time" required minlength="5" maxlength="5" placeholder="eg. 19:20">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
