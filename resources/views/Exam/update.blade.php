@@ -43,12 +43,12 @@
             @endphp
             <div class="col-md-4">
                 <div class="mb-3">
-                    <label for="date" class="form-label">Date</label>
-                    <input name="date" type="text" class="form-control" id="date" required value="{{$date}}">
+                    <label for="date" class="form-label">Date (yyyy-mm-dd)</label>
+                    <input name="date" type="text" class="form-control" id="date" required value="{{$date}}"  minlength="10" maxlength="10">
                 </div>
                 <div class="mb-3">
-                    <label for="time" class="form-label">Time</label>
-                    <input name="time" type="text" class="form-control" id="time" required value="{{$time}}">
+                    <label for="time" class="form-label">Time (hh-mm)</label>
+                    <input name="time" type="text" class="form-control" id="time" required value="{{$time}}" minlength="5" maxlength="5">
                 </div>
                 <label for="Status" class="form-label">Status</label>
             <div class="input-group">
