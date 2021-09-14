@@ -1,0 +1,23 @@
+#hover_item li a:hover{
+    background-color: skyblue;
+    color: white;
+}
+
+nav ul li a{
+    font-size: medium;
+}
+
+#userspace{
+    margin-top: 4rem;
+    color: white;
+    margin-bottom: 8rem;
+}
+
+#userspace .card{
+    background-color: rgba(0, 0, 0, 0.815);
+}
+
+.nearest_item_list{
+    padding: 1rem;
+    border-radius: 15px;
+}

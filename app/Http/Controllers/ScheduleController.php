@@ -49,7 +49,7 @@ class ScheduleController extends Controller
     {
         //
         $title = 'Add Schedule';
-        return view('Schedule.create', compact(title));
+        return view('Schedule.create', compact('title'));
     }
 
     /**

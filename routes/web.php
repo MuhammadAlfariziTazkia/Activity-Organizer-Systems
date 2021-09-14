@@ -16,6 +16,7 @@ use App\Http\Controllers\PresenceController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+date_default_timezone_set('Asia/Jakarta');
 Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
