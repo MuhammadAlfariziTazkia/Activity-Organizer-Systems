@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Schedule;
 use App\Models\Assignment;
 use App\Models\Exam;
+use Illuminate\Support\Facades\Auth;
 
 
 class HomeController extends Controller
@@ -52,16 +53,25 @@ class HomeController extends Controller
         if($current_day == "Sat"){
             $day = 'sat';
         }
-        $schedule = Schedule::all()->where('day', $day)->where('start_time', '>=', $current_time)->sortBy('start_time');
-        $unprocessed_exam = Exam::all()->where('status', 'Not yet')->sortBy('datetime')->where('datetime', '>=', $datetime)->take(1);
-        $assignment = Assignment::all()->where('status', 'Not Finished')->where('deadline_date', $current_date);
+        $unprocessed_schedule = Schedule::all()->where('user', Auth::user()->email)->where('day', $day)->where('start_time', '>=', $current_time)->sortBy('start_time')->take(1);
+        $unprocessed_exam = Exam::all()->where('user', Auth::user()->email)->where('status', 'Not yet')->sortBy('datetime')->where('datetime', '>=', $datetime)->take(1);
+        $assignment = Assignment::all()->where('user', Auth::user()->email)->where('status', 'Not Finished')->where('deadline_date', $current_date);
         $unprocessed_exam = $unprocessed_exam ?? [];
+        $unprocessed_schedule = $unprocessed_schedule ?? [];
         
         if(count($unprocessed_exam) == 0){
             $exam = 'no data';
         }else{
             foreach($unprocessed_exam as $item){
                 $exam = $item;
+            }
+        }
+
+        if(count($unprocessed_schedule) == 0){
+            $schedule = 'no data';
+        }else{
+            foreach($unprocessed_schedule as $item){
+                $schedule = $item;
             }
         }
         

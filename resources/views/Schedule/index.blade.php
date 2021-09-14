@@ -30,7 +30,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($monday as $key => $item)
+                    @if (count($monday)>0)
+                        @foreach ($monday as $key => $item)
                         <tr>
                             <th scope="col">
                                 <h4><span class="badge bg-danger">{{ $item->start_time }}</span></h4>
@@ -57,7 +58,12 @@
                                 </form>
                             </th>
                         </tr>
-                    @endforeach
+                    @endforeach    
+                    @else
+                        <tr>
+                            <th>No Data</th>
+                        </tr>
+                    @endif
                 </tbody>
             </table>
         </div>
@@ -86,7 +92,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($tuesday as $key => $item)
+                    @if (count($tuesday)>0)
+                        @foreach ($tuesday as $key => $item)
                         <tr>
                             <th scope="col">
                                 <h4><span class="badge bg-danger">{{ $item->start_time }}</span></h4>
@@ -113,7 +120,12 @@
                                 </form>
                             </th>
                         </tr>
-                    @endforeach
+                    @endforeach    
+                    @else
+                        <tr>
+                            <th>No Data</th>
+                        </tr>
+                    @endif
                 </tbody>
             </table>
         </div>
@@ -145,7 +157,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($wednesday as $key => $item)
+                    @if (count($wednesday)>0)
+                        @foreach ($wednesday as $key => $item)
                         <tr>
                             <th scope="col">
                                 <h4><span class="badge bg-danger">{{ $item->start_time }}</span></h4>
@@ -172,7 +185,12 @@
                                 </form>
                             </th>
                         </tr>
-                    @endforeach
+                    @endforeach    
+                    @else
+                        <tr>
+                            <th>No Data</th>
+                        </tr>
+                    @endif
                 </tbody>
             </table>
         </div>
@@ -201,7 +219,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($thursday as $key => $item)
+                    @if (count($thursday)>0)
+                        @foreach ($thursday as $key => $item)
                         <tr>
                             <th scope="col">
                                 <h4><span class="badge bg-danger">{{ $item->start_time }}</span></h4>
@@ -228,7 +247,12 @@
                                 </form>
                             </th>
                         </tr>
-                    @endforeach
+                    @endforeach    
+                    @else
+                        <tr>
+                            <th>No Data</th>
+                        </tr>
+                    @endif
                 </tbody>
             </table>
         </div>
@@ -260,7 +284,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($friday as $key => $item)
+                    @if (count($friday)>0)
+                        @foreach ($friday as $key => $item)
                         <tr>
                             <th scope="col">
                                 <h4><span class="badge bg-danger">{{ $item->start_time }}</span></h4>
@@ -287,7 +312,12 @@
                                 </form>
                             </th>
                         </tr>
-                    @endforeach
+                    @endforeach    
+                    @else
+                        <tr>
+                            <th>No Data</th>
+                        </tr>
+                    @endif
                 </tbody>
             </table>
         </div>
@@ -316,7 +346,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($saturday as $key => $item)
+                    @if (count($saturday)>0)
+                        @foreach ($saturday as $key => $item)
                         <tr>
                             <th scope="col">
                                 <h4><span class="badge bg-danger">{{ $item->start_time }}</span></h4>
@@ -343,7 +374,12 @@
                                 </form>
                             </th>
                         </tr>
-                    @endforeach
+                    @endforeach    
+                    @else
+                        <tr>
+                            <th>No Data</th>
+                        </tr>
+                    @endif
                 </tbody>
             </table>
         </div>
@@ -375,7 +411,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($sunday as $key => $item)
+                    @if (count($sunday)>0)
+                        @foreach ($sunday as $key => $item)
                         <tr>
                             <th scope="col">
                                 <h4><span class="badge bg-danger">{{ $item->start_time }}</span></h4>
@@ -402,7 +439,12 @@
                                 </form>
                             </th>
                         </tr>
-                    @endforeach
+                    @endforeach    
+                    @else
+                        <tr>
+                            <th>No Data</th>
+                        </tr>
+                    @endif
                 </tbody>
             </table>
         </div>

@@ -5,7 +5,6 @@ $current_day = date('D');
 $current_date = date('Y-n-j');
 $current_time = date('H:i');
 
-
 @endphp
 @extends('layouts.dashboard-master')
 
@@ -36,11 +35,11 @@ $current_time = date('H:i');
                         </h3>
                     </div>
                     <div class="card-body">
-                        @if (count($schedule) > 0)
+                        @if ($schedule != 'no data')
                             <div class="card nearest_item_list">
-                                <h3 class="card-title">{{ $schedule[0]->subject }}</h3>
+                                <h3 class="card-title">{{ $schedule->subject }}</h3>
                                 <h5 class="card-text">
-                                    At {{ $schedule[0]->start_time }}
+                                    At {{ $schedule->start_time }}
                                 </h5><br>
                             </div>
                             <br>
@@ -55,7 +54,7 @@ $current_time = date('H:i');
                 </div>
                 <br>
             </div>
-            
+
             <div class="col">
                 <div class="card" style="border-radius: 20px">
                     <div class="card-header">
@@ -65,14 +64,14 @@ $current_time = date('H:i');
                     </div>
                     <div class="card-body">
                         @if ($exam != 'no data')
-                        
-                           <div class="card nearest_item_list">
-                            <h4 class="card-title">({{$exam->category}}) {{ $exam->subject }}</h4>
-                            <p class="card-text">
-                                At {{ $exam->datetime }}
-                            </p><br>
-                           </div>
-                           <br>
+
+                            <div class="card nearest_item_list">
+                                <h4 class="card-title">({{ $exam->category }}) {{ $exam->subject }}</h4>
+                                <p class="card-text">
+                                    At {{ $exam->datetime }}
+                                </p><br>
+                            </div>
+                            <br>
                             <center>
                                 <a href="{{ url('/exam') }}" class="btn btn-primary">Show My Exam!</a>
                             </center>
@@ -83,7 +82,7 @@ $current_time = date('H:i');
                 </div>
                 <br>
             </div>
-            
+
             <div class="col">
                 <div class="card" style="border-radius: 20px">
                     <div class="card-header">
@@ -117,5 +116,8 @@ $current_time = date('H:i');
                 </div>
             </div>
         </div>
+    </div>
+    <div class="card p-2" style="background-color: rgb(0, 0, 0, 0.5); margin-bottom: 1rem; border-radius: 20px">
+        <center><h5 style="color: white">Created By &copy Muhammad Alfarizi Tazkia</h5></center>
     </div>
 @endsection()

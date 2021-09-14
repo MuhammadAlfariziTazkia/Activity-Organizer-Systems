@@ -21,34 +21,38 @@
             </tr>
         </thead>
         <tbody>
+            @if (count($pre)>0)
             @foreach ($pre as $key => $item)
-                <tr>
-                    <td scope="col">
-                        <center>{{ $item->subject }}</center>
-                    </td>
-                    <td scope="col">
-                        <center>{{ $item->date }}</center>
-                    </td>
-                    <td scope="col">
-                        <center><a href="{{ '/images/Presence/' . $item->presence_screenshot }}" target="_blank"
-                                class="btn btn-danger">Download Proof</a></center>
-                    </td>
-                    <td scope="col">
-                        <h5><b>
-                                <center><span @if ($item->status == 'Presence')
-                                        class="badge bg-primary"
-            @endif
-            @if ($item->status == 'Sick/Excuse')
-                class="badge bg-success"
-            @endif
-            @if ($item->status == 'Alpha')
-                class="badge bg-danger"
-            @endif
-            >{{ $item->status }}</span></center></b></h5>
-            </td>
-            </tr>
+            <tr>
+                <td scope="col">
+                    <center>{{ $item->subject }}</center>
+                </td>
+                <td scope="col">
+                    <center>{{ $item->date }}</center>
+                </td>
+                <td scope="col">
+                    <center><a href="{{ '/images/Presence/' . $item->presence_screenshot }}" target="_blank"
+                            class="btn btn-danger">Download Proof</a></center>
+                </td>
+                <td scope="col">
+                    <h5><b>
+                            <center><span @if ($item->status == 'Presence')
+                                    class="badge bg-primary"
+        @endif
+        @if ($item->status == 'Sick/Excuse')
+            class="badge bg-success"
+        @endif
+        @if ($item->status == 'Alpha')
+            class="badge bg-danger"
+        @endif
+        >{{ $item->status }}</span></center></b></h5>
+        </td>
+        </tr>
 
-            @endforeach
+        @endforeach
+            @else
+                <tr><th>No Data</th></tr>
+            @endif
         </tbody>
     </table>
 @endsection
