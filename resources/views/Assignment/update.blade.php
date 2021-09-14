@@ -24,8 +24,8 @@
                     <input name="assignment_link" type="text" class="form-control" id="assignment_link" value="{{$assignment->assignment_link}}">
                 </div>
                 <div class="mb-3">
-                    <label for="deadline_date" class="form-label">Deadline Date</label>
-                    <input name="deadline_date" type="text" class="form-control" id="deadline_date" required value="{{$assignment->deadline_date}}">
+                    <label for="deadline_date" class="form-label">Deadline Date (yyyy-mm-dd)</label>
+                    <input name="deadline_date" type="text" class="form-control" id="deadline_date" required value="{{$assignment->deadline_date}}" minlength="10" maxlength="10">
                 </div>
 
                 <div class="mb-3">

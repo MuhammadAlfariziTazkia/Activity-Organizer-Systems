@@ -23,8 +23,8 @@
                     <input name="assignment_link" type="text" class="form-control" id="assignment_link">
                 </div>
                 <div class="mb-3">
-                    <label for="deadline_date" class="form-label">Deadline Date</label>
-                    <input name="deadline_date" type="text" class="form-control" required id="deadline_date">
+                    <label for="deadline_date" class="form-label">Deadline Date (yyyy-mm-dd)</label>
+                    <input name="deadline_date" type="text" class="form-control" required id="deadline_date" minlength="10" maxlength="10" placeholder="eg. 2021-09-08">
                 </div>
 
                 <div class="mb-3">
