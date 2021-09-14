@@ -26,12 +26,12 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="start_time" class="form-label">Start Time</label>
-                    <input name="start_time" type="text" class="form-control" id="start_time" required>
+                    <label for="start_time" class="form-label">Start Time (hh:mm)</label>
+                    <input name="start_time" type="text" class="form-control" id="start_time" required minlength="5" maxlength="5" placeholder="eg. 19:02">
                 </div>
                 <div class="mb-3">
-                    <label for="end_time" class="form-label">End Time</label>
-                    <input name="end_time" type="text" class="form-control" id="end_time">
+                    <label for="end_time" class="form-label">End Time (hh:mm)</label>
+                    <input name="end_time" type="text" class="form-control" id="end_time" minlength="5" maxlength="5" placeholder="eg. 09:02">
                 </div>
             </div>
             <div class="col-md-4">
