@@ -14,8 +14,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="date" class="form-label">Date</label>
-                    <input name="date" type="text" class="form-control" id="date" required>
+                    <label for="date" class="form-label">Date (yyyy-mm-dd)</label>
+                    <input name="date" type="text" class="form-control" id="date" required minlength="10" maxlength="10" placeholder="eg. 2021-20-08">
                 </div>
 
                 <div class="mb-3">
