@@ -53,7 +53,9 @@ $current_time = date('H:i');
                         @endif
                     </div>
                 </div>
+                <br>
             </div>
+            
             <div class="col">
                 <div class="card" style="border-radius: 20px">
                     <div class="card-header">
@@ -79,7 +81,9 @@ $current_time = date('H:i');
                         @endif
                     </div>
                 </div>
+                <br>
             </div>
+            
             <div class="col">
                 <div class="card" style="border-radius: 20px">
                     <div class="card-header">
